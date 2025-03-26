@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+{% endblock link %}
+
+{% block scripts %}
+    <script src="{% static 'js/registration.js' %}"></script>
+{% endblock scripts %}
+{% block content %}
+<main>
+    
+    <h2 id="registration-header">Регистрация</h2>
+    <section class="registration-form">
+        <form method="post" autocomplete="off">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }} <!-- Отображение формы с полями -->
+            </div>
+            <div id="age-info" class="form-group" style="display:none;">
+                <p id="age-message"></p>
+                <p id="day-message"></p>
+            </div>
+            <div class="form-actions">
+                <input type="submit" value="Зарегистрироваться">
+                <button class="btn-read-more" name="Ко входу" 
+                        style="width: 100%"
+                        type="button" onclick="location.href='{% url 'login' %}'">Ко входу</button>
+            </div>
+        </form>
+    </section>
+
+</main>
+{% endblock %}

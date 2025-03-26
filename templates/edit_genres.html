@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Жанры{% endblock title %}
+{% block content %}
+    <main>
+        <section>
+            <section>
+                <form method="POST" action="/create_genre/">
+                    {% csrf_token %}
+                    <div>
+                        <label for="name">Введите название жанра</label><br>
+                        <input type="text" id="name" name="name" tabindex="1" class="form-input"/>
+                    </div>
+                    <div>
+                        <label for="description">Введите описание жанра</label><br>
+                        <textarea id="description" name="description" tabindex="2" class="form-input"></textarea>
+                    </div>
+                    <div>
+                        <input type="submit" value="Сохранить" tabindex="3">
+                    </div>
+                </form>
+            </section>
+            {% if genres.count > 0 %}
+                <section>
+                    <table>
+                        <caption>Список жанров</caption>
+                        <thead>
+                            <tr>
+                                <th>Название жанра</th>
+                                <th>Описание</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for g in genres %}
+                            <tr>
+                                <td class="short-description">{{ g.name }}</td>
+                                <td>{{ g.description }}</td>
+                                <td class="short-description">
+                                    <a href="/edit_genre/{{g.id}}">Изменить</a> 
+                                    <a href="/delete_genre/{{g.id}}">Удалить</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </section>
+            {% else %}
+                <p>Нет доступных жанров.</p>
+            {% endif %}
+        </section>
+    </main>
+{% endblock content %}

@@ -1,0 +1,376 @@
+.news-section, .partners-section, .ads-section {
+    margin: 20px 0;
+}
+
+.ads-section {
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+.ads-container {
+    display: flex; /* Используем Flexbox для расположения изображений */
+    justify-content: space-around; /* Размещаем элементы по всему контейнеру */
+    flex-wrap: wrap; /* Позволяем перенос элементов на следующую строку */
+    padding: 20px; /* Отступы вокруг контейнера */
+}
+
+.ads-container img {
+    height: 350px; /* Высота изображений */
+    border-radius: 10px; /* Закругленные углы для изображений */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Тень для изображений */
+    transition: transform 0.3s, box-shadow 0.3s; /* Плавный переход для эффекта */
+}
+
+.ads-container img:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); /* Увеличение тени при наведении */
+}
+
+
+img[alt="Логотип Синема Миракл"] {
+    width: 45%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transform: translateX(-30px);
+    transition: transform 0.3s ease;
+}
+
+.ads-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.partners-list {
+    display: flex; /* Изменяем на flex для горизонтального размещения */
+    justify-content: center; /* Центрируем элементы */
+    flex-wrap: wrap; /* Позволяем перенос элементов на следующую строку, если не помещаются */
+    margin: 10px 0; /* Отступы сверху и снизу */
+}
+
+.partners-list figure {
+    margin: 0 10px; /* Отступы между партнерами */
+    text-align: center; /* Центрируем текст под картинкой */
+}
+
+.partner-logo {
+    height: 100px; /* Высота логотипа */
+    width: auto; /* Ширина автоматически сохраняет пропорции */
+    max-width: 100%; /* Ограничиваем ширину логотипа */
+    border-radius: 5px; /* Закругляем углы логотипа */
+    transition: transform 0.3s; /* Плавный эффект при наведении */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Тень для блока */
+}
+
+figcaption {
+    font-size: 14px; /* Размер шрифта для названия партнера */
+    margin-top: 5px; /* Отступ сверху */
+}
+
+/* Декоративная линия под заголовком */
+.section-title::after {
+    content: "";
+    display: block;
+    width: 60px; /* Длина линии */
+    height: 3px; /* Толщина линии */
+    background-color: #bde0fe; /* Цвет линии */
+    margin: 10px auto 0; /* Автоматическое центрирование */
+}
+
+/* Можно добавить тень для большей выразительности */
+.section-title {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Общий стиль для заголовков секций */
+.section-title {
+    text-align: center;
+    font-size: 2rem; /* Размер шрифта можно подстроить под вкус */
+    margin-bottom: 20px; /* Расстояние между заголовком и контентом */
+    color: #333; /* Темный оттенок для текста */
+    position: relative;
+}
+
+/* Секция новости */
+.news-section {
+    margin: 50px 0;
+    text-align: center;
+}
+
+/* Карточка новости */
+.news-card {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.news-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Изображение новости */
+.news-image-home {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    filter: brightness(80%);
+    transition: filter 0.3s ease;
+}
+
+.news-card:hover .news-image {
+    filter: brightness(100%);
+}
+
+/* Наложение текста поверх изображения */
+.news-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), transparent);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+}
+
+/* Текст новости */
+.news-text {
+    color: #fff;
+    text-align: left;
+}
+
+.news-headline {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.news-content-home {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Кнопка "Читать далее" */
+button.btn-read-more[type="button"] {
+    background-color: #c79cdf;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-read-more:hover[type="button"] {
+    background-color: #c573ea;
+}
+h2.quote {
+    text-align: left;
+}
+
+#countdown-timer {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    margin: 20px auto;
+    transition: transform 0.3s ease;
+}
+#countdown-timer {
+    display: block;
+    width: fit-content; /* Таймер будет занимать только нужное место */
+    max-width: 300px;   /* Максимальная ширина, если нужно ограничить */
+    margin: 20px auto;
+}
+
+#countdown-timer:hover {
+    transform: scale(1.05);
+}
+.filter-container {
+    margin-bottom: 15px;
+    text-align: center;
+
+}
+
+#search-input {
+    padding: 8px;
+    font-size: 14px;
+    width: 250px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+}
+
+#search-button {
+    padding: 10px 15px;
+    background-color: #f8c7b5;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 35px;
+}
+
+#search-button:hover {
+    background-color: #fdb29b;
+}
+
+
+/* Слайдер контейнер */
+.slider-section {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* Слайдер контейнер */
+.slider-section {
+    position: relative;
+    width: 60%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* Слайды */
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Оформление слайдов */
+.slide-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Оверлей с подписью */
+.slide-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+/* Стрелки навигации */
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 20px;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* Пагинация */
+.pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+.pagination span {
+    height: 8px;
+    width: 8px;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+.pagination span.active {
+    background-color: #ffffff;
+    width: 12px;
+    height: 12px;
+    transform: translateY(-2px);
+}
+
+/* Индикатор текущего слайда */
+.slide-number {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 3px 6px;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.awards {
+    margin-left: 490px;
+    margin-top: 40px; /* Немного отступа для размещения кубков ниже */
+    margin-bottom: 30px;
+    z-index: 10; /* Чтобы кубки не перекрывали другие элементы */
+    display: flex;
+    width: 70%;
+    gap: 50px;
+}
+
+.award {
+    position: relative;
+    margin: 30px;
+    opacity: 0;
+    transform: scale(1); /* Начальная трансформация для кубков */
+    transition: transform 0.2s linear, opacity 0.2s linear;
+    will-change: transform, opacity;
+}
+
+.award img {
+    width: auto;
+    height: 90px;
+    display: block;
+    margin: auto;
+}
+
+
+
+
+
+
+
+

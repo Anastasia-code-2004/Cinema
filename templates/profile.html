@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Профиль{% endblock title %}
+
+{% block content %}
+<main>
+    <section>
+        {% if user.is_authenticated %}
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Выход</button>
+            </form>
+            {% if user.is_superuser %}
+                <form action="{% url 'admin:index' %}" method="get">
+                    <button type="submit">Админ-панель</button>
+                </form>
+                
+            {% endif %}
+            {% if not user.is_superuser and not user.is_staff %}
+                <form action="{% url 'cart' %}" method="get">
+                    <button type="submit">Корзина</button>
+                </form>
+            {% endif %}
+
+            <!-- Форма фильтрации под кнопками -->
+            <form method="get" class="filter-form">
+                <div class="select-group">
+                    <select name="movie" onchange="this.form.submit()">
+                        <option value="">Фильм</option>
+                        {% for movie in movies %}
+                            <option value="{{ movie.title }}" 
+                                    {% if movie.title == request.GET.movie %}selected{% endif %}>
+                                {{ movie.title }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <select name="showtime" onchange="this.form.submit()">
+                        <option value="">Сеанс</option>
+                        {% for showtime in showtimes %}
+                            <option value="{{ showtime.id }}" 
+                                    {% if showtime.id == request.GET.showtime %}selected{% endif %}>
+                                {{ showtime.start_time }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <input type="date" name="date" value="{{ request.GET.date }}" onchange="this.form.submit()">
+                </div>
+            </form>
+        {% else %}
+            <form action="{% url 'signup' %}" method="get">
+                <button type="submit">Регистрация</button>
+            </form>
+            <form action="{% url 'login' %}" method="get">
+                {% csrf_token %}
+                <button type="submit">Вход</button>
+            </form>
+        {% endif %}
+    </section>
+</main>
+{% endblock content %}

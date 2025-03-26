@@ -1,0 +1,171 @@
+/* Общие стили для тела страницы */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 60px;
+    padding: 0;
+}
+
+/* Контейнер для основной части */
+.container {
+    width: 80%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Заголовок страницы */
+.page-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Блоки формы */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Заголовки для каждого поля ввода */
+.form-group label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Поля ввода (текстовые и числовые) */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+.input-field:focus {
+    border-color: #5f63f2;
+    outline: none;
+}
+
+/* Кнопки (для добавления и отображения посылок) */
+.button {
+    padding: 12px 20px;
+    background-color: #b799f1;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #a16eff;
+}
+
+/* Раздел для вывода посылок */
+.output {
+    margin-top: 30px;
+}
+
+/* Заголовок секции вывода */
+.output h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Список добавленных посылок */
+.package-list {
+    margin-top: 15px;
+}
+
+/* Элементы списка посылок */
+.package-item {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Стиль для элементов списка при наведении */
+.package-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* Падающая тень и эффекты */
+.package-item:active {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Новый стиль для раздела с получателями */
+.recipient-result {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #e8f4ff;
+    border: 1px solid #c2e0ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.recipient-result:hover {
+    background-color: #d3e7ff;
+    transform: scale(1.02);
+}
+
+/* Стиль заголовков в блоках с результатами */
+.recipient-result h3 {
+    font-size: 1.3rem;
+    color: #4c6baf;
+    margin-bottom: 10px;
+}
+
+/* Выделение общей информации */
+.recipient-result p {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Стиль для отсутствия результатов */
+.no-results {
+    padding: 15px;
+    background-color: #fff4e6;
+    border: 1px solid #ffd9b3;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    color: #cc7a00;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Анимация появления результатов */
+.recipient-result, .no-results {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

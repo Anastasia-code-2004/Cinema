@@ -1,0 +1,48 @@
+nav {
+    background-color: #333;
+    padding: 5px; /* уменьшили padding для навигации */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px; /* ещё уменьшили расстояние между ссылками */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav a {
+    color: #f0f0f0;
+    text-decoration: none;
+    padding: 6px 10px; /* уменьшили padding для ссылок */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px; /* сохранили прежний размер шрифта */
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+nav a.active {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+
+@media (max-width: 768px) {
+    nav {
+        padding: 8px; /* Немного увеличиваем padding */
+        justify-content: flex-start; /* Выравниваем ссылки по левому краю */
+        overflow-x: auto; /* Добавляем горизонтальную прокрутку при нехватке места */
+    }
+
+    nav a {
+        font-size: 14px; /* Уменьшаем размер шрифта */
+        padding: 6px 8px; /* Уменьшаем padding, чтобы ссылки компактно располагались */
+        white-space: nowrap; /* Запрещаем перенос текста на новую строку */
+    }
+}

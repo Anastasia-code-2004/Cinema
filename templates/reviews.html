@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Отзывы{% endblock title %}
+{% block content %}
+    <main>
+        <!-- Форма добавления отзыва -->
+        <form method="post" action="{% url 'add_review' %}" class="reviews">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Отправить отзыв</button>
+        </form>
+
+        <!-- Секция с отзывами -->
+        <section class="reviews-section">
+            {% for i in all_items %}
+                <section class="review-item">
+                    <h3>{{ i.name }}</h3>
+                    <h2>{{ i.client.user.username }}</h2>
+                    <p class="rating">Рейтинг: {{ i.rating }}/5</p>
+                    <p class="text">{{ i.text }}</p>
+                    <p class="date">{{ i.date }}</p>
+                </section>
+            {% endfor %}
+        </section>
+    </main>
+{% endblock content %}

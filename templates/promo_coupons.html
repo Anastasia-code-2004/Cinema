@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Промокоды{% endblock title %}
+{% block content %}
+<main>
+
+    <section class="promo-section">
+        {% for i in all_items %}
+        <div class="promo-card">
+            <figure>
+                <figcaption class="promo-code">Промокод: <strong>{{ i.code }}</strong></figcaption>
+                <p class="promo-discount">Скидка: <strong>{{ i.discount_in_percents }}%</strong></p>
+                <p class="promo-status" style="color: {% if i.is_active %}green{% else %}red{% endif %};">
+                    {% if i.is_active %}Активен{% else %}Не активен{% endif %}
+                </p>
+                <hr class="promo-divider">
+            </figure>
+        </div>
+        {% endfor %}
+    </section>
+</main>
+{% endblock content %}

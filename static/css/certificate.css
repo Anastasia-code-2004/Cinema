@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400&display=swap');
+
+.certificate-section {
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    text-align: center;
+    margin-top: 0.5rem;
+    padding: 20px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 15px 80px; /* Устанавливаем 15px сверху и снизу, 80px слева и справа */
+    border-style: solid;
+    border-image: url('/media/certificate/border.png') 30 stretch;
+    -webkit-border-image: url('/media/certificate/border.png') 20 stretch; /* Вендорный префикс для WebKit */
+    -moz-border-image: url('/media/certificate/border.png') 20 stretch; /* Вендорный префикс для Mozilla */
+    background: transparent; /* Убираем фон, чтобы не мешал градиенту */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Скрываем содержимое, выходящее за пределы */
+}
+
+.certificate-section::before {
+    content: "";
+    position: absolute;
+    top: 11px; /* Прилегает к верхней границе рамки */
+    left: 9px; /* Прилегает к левой границе рамки */
+    right: 9px; /* Прилегает к правой границе рамки */
+    bottom: 13px; /* Прилегает к нижней границе рамки */
+    background: linear-gradient(to bottom, rgba(255, 182, 193, 0.3), rgba(255, 255, 255, 1)); /* Легкий розоватый градиент */
+    z-index: 0; /* Псевдоэлемент под текстом */
+}
+
+.certificate-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    z-index: 2; /* Выше водяного знака */
+    position: relative;
+}
+
+.certificate-section::after {
+    content: "";
+    position: absolute;
+    top: 20%; /* Опустить водяной знак еще ниже */
+    left: 25%; /* Центрировать водяной знак */
+    width: 50%; /* Уменьшенный размер водяного знака по ширине */
+    height: 50%; /* Уменьшенный размер водяного знака по высоте */
+    background-image: url('/media/certificate/watermark.jpg');
+    background-size: contain; /* Сохраняем пропорции */
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3; /* Сделать водяной знак еще более полупрозрачным */
+    z-index: 1; /* Позади текста */
+}
+
+.certificate-article {
+    position: relative;
+    z-index: 2; /* Текст выше водяного знака */
+    display: inline-block;
+    text-align: left;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.certificate-header h3,
+.certificate-header h4 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    font-size: 0.8rem;
+    z-index: 2; /* Текст выше водяного знака */
+    position: relative;
+}
+
+.certificate-header p {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #333;
+    z-index: 2; /* Текст выше водяного знака */
+    position: relative;
+}
+
+.certificate-info {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #333;
+    z-index: 2; /* Текст выше водяного знака */
+    position: relative;
+}
+
+.certificate-footer {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 0.6rem;
+    color: #333;
+    z-index: 2;
+    position: relative;
+}
+
+.certificate-footer p {
+    margin: 1px 0;
+}
+
+.signature {
+    width: 120px; /* Увеличиваем ширину росписи */
+    height: auto; /* Высота автоматически подстраивается под содержимое */
+    opacity: 0.9;
+    margin-top: 5px;
+    z-index: 2;
+    position: relative;
+}
+
+/* Стиль для места под печать */
+.stamp-placeholder {
+    display: inline-block;
+    margin-top: 10px;
+    width: 100px; /* Размер для области печати */
+    height: 100px;
+    position: relative;
+}
+
+.stamp-placeholder img {
+    width: 80%; /* Настройка размера печати */
+    height: auto;
+    opacity: 0.8; /* Легкая прозрачность для печати */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+
+/*О компании оформление*/
+section iframe {
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Тень для эффекта объема */
+    transition: transform 0.3s ease; /* Плавный эффект */
+}
+
+section iframe:hover {
+    transform: scale(1.05); /* Легкий масштаб при наведении */
+}
+
+/* Оформление секции с реквизитами */
+.company-details-section {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 1000px;
+    margin: 40px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.company-details-title {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.company-details-article {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+/* Карточка для каждого блока реквизитов */
+.company-details-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    flex: 1 1 calc(50% - 20px); /* Делаем карточки адаптивными */
+    min-width: 300px; /* Минимальная ширина карточки */
+    transition: transform 0.3s ease;
+}
+
+.company-details-card:hover {
+    transform: translateY(-5px); /* Легкий подъем карточки при наведении */
+}
+
+.company-details-card strong {
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #150d0d;
+}
+
+.company-details-card p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Отдельные стили для ключевых данных */
+.company-details-card p.account-info {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e94e77;
+}
+
+.company-details-card p.address-info {
+    font-style: italic;
+    color: #444;
+}
+
+/* Общие стили для секции истории */
+#history-section {
+    max-width: 800px; /* Ограничиваем максимальную ширину */
+    margin: 40px auto; /* Центрируем секцию */
+    padding: 20px;
+    background-color: #f7f7f7; /* Лёгкий фон */
+    border-radius: 8px; /* Закруглённые углы */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Небольшая тень */
+}
+
+/* Заголовок секции */
+#history-section h2 {
+    font-family: 'Playfair Display', serif; /* Используем стильный шрифт */
+    text-align: center; /* Центрируем заголовок */
+    color: #333; /* Цвет текста */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+/* Стили для списка истории */
+#history-section ul {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем внутренние отступы */
+}
+
+/* Стили для каждого элемента списка */
+#history-section li {
+    display: flex; /* Используем flex для расположения элементов */
+    justify-content: space-between; /* Распределяем элементы по ширине */
+    padding: 10px; /* Отступы внутри элемента */
+    border-bottom: 1px solid #ddd; /* Лёгкая разделительная линия */
+}
+
+#history-section li:last-child {
+    border-bottom: none; /* Убираем нижнюю линию у последнего элемента */
+}
+
+/* Стили для года */
+.history-year {
+    font-weight: bold; /* Жирный шрифт для года */
+    color: #e94e77; /* Цвет текста */
+    width: 100px; /* Фиксированная ширина для года */
+}
+
+/* Стили для события */
+.history-event {
+    flex: 1; /* Занимаем оставшееся пространство */
+    margin-left: 10px; /* Отступ слева */
+    color: #555; /* Цвет текста события */
+    line-height: 1.4; /* Высота строки для читаемости */
+}
+
+/* Стили для секции с политикой конфиденциальности */
+.privacy-policy-section {
+    max-width: 800px; /* Ограничиваем максимальную ширину секции */
+    margin: 5px auto; /* Уменьшаем отступ сверху до 5px и центрируем секцию */
+    padding: 15px; /* Внутренние отступы */
+    background-color: #f9f9f9; /* Светлый фон для контраста */
+    border-radius: 8px; /* Закруглённые углы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Небольшая тень */
+    text-align: center; /* Центрируем текст внутри секции */
+}
+
+a.privacy-link:link, a.privacy-link:visited {
+    color: #e94e77;
+}
+
+
+
+
+
+
+
+
+
+
+

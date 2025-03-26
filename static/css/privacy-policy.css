@@ -1,0 +1,97 @@
+/* Стили для страницы Политики конфиденциальности */
+.privacy-policy-page {
+    margin: 50px auto;
+    max-width: 900px;
+    padding: 30px;
+    background-color: #fdfdfd;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок секции */
+.privacy-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #2d2d2d;
+}
+
+/* Основной текст */
+.privacy-intro {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Нумерованный список */
+.privacy-list {
+    counter-reset: privacy-counter;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+
+.privacy-item {
+    counter-increment: privacy-counter;
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 40px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.privacy-item::before {
+    content: counter(privacy-counter) ".";
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffafcc;
+}
+
+.privacy-sublist {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style-type: disc;
+    color: #777;
+    line-height: 1.6;
+}
+
+/* Регламент и GDPR */
+.privacy-regulation {
+    margin-top: 30px;
+    font-style: italic;
+    color: #444;
+}
+
+/* Цитаты */
+.quote-title {
+    margin-top: 40px;
+    font-size: 1.8rem;
+    text-align: center;
+    color: #333;
+}
+
+.privacy-quote {
+    margin: 20px auto;
+    font-style: italic;
+    font-size: 1.1rem;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-left: 5px solid #ffafcc;
+    color: #555;
+}
+
+/* Стих */
+.privacy-poem {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center;
+    margin-top: 40px;
+    color: #333;
+    font-style: italic;
+    padding: 20px;
+    background-color: #FDE2ED;
+    border-radius: 10px;
+}

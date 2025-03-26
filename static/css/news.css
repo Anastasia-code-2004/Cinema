@@ -1,0 +1,121 @@
+/* Общий контейнер для новостей */
+.news-list {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Отступы между новостями */
+}
+
+/* Элемент новости */
+.news-item {
+    display: flex;
+    gap: 20px; /* Отступ между текстом и картинкой */
+    border-bottom: 1px solid #e0e0e0; /* Линия между статьями */
+    padding-bottom: 20px;
+}
+
+/* Изображение новости, небольшое и аккуратное */
+.news-image {
+    width: 30%; /* Ограничиваем ширину картинки */
+    height: auto;
+    object-fit: cover; /* Сохраняем пропорции */
+    border-radius: 5px;
+}
+
+/* Контент новости */
+.news-content-wrapper {
+    flex: 1; /* Контейнер для текста */
+}
+
+/* Заголовок статьи */
+.news-item h3 {
+    font-size: 1.6rem;
+    margin: 0 0 10px;
+    color: #333;
+}
+
+/* Краткое содержание с overflow и многоточием */
+.news-content {
+    font-size: 1.1rem;
+    color: #555;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Ограничиваем двумя строками */
+    -webkit-box-orient: vertical;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Кнопка для перехода к полной статье */
+.news-item button {
+    background-color: #c79cdf;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.news-item button:hover {
+    background-color: #b76de3;
+}
+
+
+/* Многоколоночный макет для статьи */
+.full-article {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    column-count: 2;
+    column-gap: 30px;
+}
+
+/* Основной контейнер статьи */
+article.news-details {
+    max-width: 900px; /* Ограничиваем ширину текста для лучшей читаемости */
+    margin: 0 auto; /* Центрируем блок на странице */
+    padding: 20px;
+}
+
+/* Заголовок статьи */
+article.news-details h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Изображение */
+article.news-details img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Добавляем закругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+/* Текст статьи с многоколоночным макетом */
+article.news-details p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #444;
+    column-count: 2; /* Две колонки для текста */
+    column-gap: 40px; /* Отступ между колонками */
+    text-align: justify; /* Выровнять текст по ширине */
+    hyphens: auto; /* Автоматический перенос слов */
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .full-article {
+        column-count: 1;
+    }
+    .news-image {
+        width: 100%;
+    }
+}
+

@@ -1,0 +1,142 @@
+/* Основные стили для страницы статистики */
+.statistics-page {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6; /* Межстрочный интервал */
+}
+
+/* Оформление секций */
+.statistics-section {
+    margin-bottom: 40px; /* Отступы между секциями */
+}
+
+/* Оформление блоков статистики */
+.stat-block {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Заголовки */
+.stat-title {
+    font-size: 1.5em;
+    text-transform: uppercase; /* Заголовки в верхнем регистре */
+    margin-bottom: 10px;
+}
+
+/* Обычный текст */
+.stat-text {
+    font-size: 1.1em;
+    text-indent: 20px; /* Красная строка */
+    margin-bottom: 10px;
+    font-variant: small-caps; /* Пример использования капители */
+    letter-spacing: 0.05em; /* Интервал между символами */
+    word-spacing: 0.1em; /* Интервал между словами */
+}
+
+/* Перенос и разрыв слов для длинных текстов */
+.stat-text {
+    word-wrap: break-word; /* Разрыв слов, если слишком длинные */
+    hyphens: auto; /* Переносы слов */
+}
+
+/* Дополнительное оформление для конкретных блоков */
+.popular-movie {
+    font-weight: bold;
+    color: #ff6b6b; /* Цвет для выделения популярного фильма */
+}
+
+.profitable-movie {
+    font-style: italic; /* Курсив для прибыльного фильма */
+    color: #2b8a3e;
+}
+
+/* Ссылка на код статистики */
+.stat-link {
+    font-size: 1.2em;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.stat-link:hover {
+    text-decoration: underline;
+}
+
+/* Стиль для флажков */
+.stat-checkbox {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.stat-checkbox input[type="checkbox"]:checked {
+    margin-right: 10px;
+    transform: scale(1.2);
+    accent-color: #fd7bac; /* Основной акцентный цвет для галочек */
+}
+
+/* Стиль для радиопереключателей */
+.toggle-group {
+    margin-top: 20px;
+}
+
+.stat-toggle {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.stat-toggle input[type="radio"]:checked {
+    margin-right: 10px;
+    transform: scale(1.2);
+    accent-color: #c573ea; /* Цвет переключателей */
+}
+
+label[for="age"]{
+    font-size: 1.1em;
+    text-indent: 20px; /* Красная строка */
+    margin-bottom: 10px;
+    font-variant: small-caps; /* Пример использования капители */
+    letter-spacing: 0.05em; /* Интервал между символами */
+    word-spacing: 0.1em; /* Интервал между словами */
+    margin-left: -20px;
+}
+
+.stat-image-container {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.stat-image {
+    width: 200px;  /* фиксированная ширина */
+    height: 150px; /* фиксированная высота */
+    object-fit: cover; /* изображение будет масштабироваться без искажения пропорций */
+    border-radius: 10px; /* скругление углов изображения */
+    transition: transform 0.3s ease; /* плавный переход для масштабирования */
+}
+
+.stat-image:hover {
+    transform: scale(1.1); /* увеличение картинки при наведении */
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+    .statistics-page {
+        padding: 10px;
+    }
+
+    .stat-title {
+        font-size: 1.3em;
+    }
+
+    .stat-text {
+        font-size: 1em;
+        text-indent: 15px; /* Уменьшаем красную строку на мобильных */
+    }
+}

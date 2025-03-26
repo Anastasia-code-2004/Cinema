@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Новости{% endblock title %}
+{% block content %}
+    <main>
+        <section class="news-list">
+            {% for i in all_items %}
+                <article class="news-item">
+                    <img src="{{ i.image.url }}" alt="{{ i.title }}" class="news-image">
+                    <div class="news-content-wrapper">
+                        <h3>{{ i.title }}</h3>
+                        <p class="news-content">{{ i.content }}</p>
+                        <button name="Read more" type="button" 
+                                onclick="location.href='{% url 'news_details' i.id %}'">
+                            Читать далее
+                        </button>
+                    </div>
+                </article>
+            {% endfor %}
+        </section>
+    </main>
+{% endblock content %}

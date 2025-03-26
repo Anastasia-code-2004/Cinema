@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}Контакты{% endblock title %}
+{% block scripts %}
+    <script src="/static/js/table-staff.js"></script>
+    <script src="/static/js/validation.js"></script>
+{% endblock scripts %}
+{% block content %}
+<main>
+    <section id="staff">
+        <h2>Сотрудники</h2>
+        <div id="preloader" class="preloader" style="display: none; margin-bottom: 45px">
+            {% for i in "1234" %}
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            {% endfor %}
+        </div>
+        <!-- Кнопка для открытия формы добавления сотрудника -->
+        <div class="button-container">
+            <button id="add-employee-button" class="btn-emp">Добавить</button>
+        </div>
+        
+        <!-- Форма добавления нового сотрудника -->
+        <div id="add-employee-form" class="form-container" style="display: none;">
+            <h3>Добавить сотрудника</h3>
+            <form id="employee-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <label for="employee-photo">Фото:</label>
+                <input type="file" id="employee-photo" name="photo" accept="image/*" required><br><br>
+                
+                <label for="employee-name">Имя:</label>
+                <input type="text" id="employee-name" name="username" required><br><br>
+                
+                <label for="employee-description">Описание:</label>
+                <input type="text" id="employee-description" name="job_description" required><br><br>
+                
+                <label for="employee-phone">Телефон:</label>
+                <input type="tel" id="employee-phone" name="phone" required><br><br>
+                
+                <label for="employee-email">Email:</label>
+                <input type="email" id="employee-email" name="email" required><br><br>
+                
+                <label for="employee-url">URL:</label>
+                <input type="url" id="employee-url" name="url"><br><br>
+                
+                <input type="password" id="employee-password1" name="password1" hidden>
+                <input type="password" id="employee-password2" name="password2" hidden>
+                <input type="date" id="employee-birthdate" name="date_of_birth" hidden>
+                
+                <div class="form-buttons">
+                    <button type="button" id="save-employee-button" class="btn-emp">Сохранить</button>
+                    <button type="button" id="cancel-employee-button" class="btn btn-cancel">Отмена</button>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="filter-container">
+            <label for="search-input"></label><input type="text" id="search-input" placeholder="Введите текст для поиска..." />
+            <button id="search-button">Найти</button>
+        </div>
+        <table id="employee-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Фото</th>
+                    <th>Имя <span class="sort-indicator">⇅</span></th>
+                    <th>Описание <span class="sort-indicator">⇅</span></th>
+                    <th>Телефон <span class="sort-indicator">⇅</span></th>
+                    <th>Email <span class="sort-indicator">⇅</span></th>
+                </tr>
+            </thead>
+
+            <tbody id="employee-tbody">
+                
+            </tbody>
+        </table>
+        <div class="button-container">
+            <button id="reward-button" class="btn-emp">Премировать</button>
+        </div>
+        <div id="reward-text"></div>
+        <div id="pagination-controls"></div>
+        <div id="employee-details" style="display: none; margin-top: 20px;">
+            <h3>Детали сотрудника</h3>
+            <img id="detail-photo" alt="Photo" src="" style="height: 400px; margin-left: 160px; border-radius: 10px;"/>
+            <p><strong>Имя:</strong> <span id="detail-name"></span></p>
+            <p><strong>Описание:</strong> <span id="detail-description"></span></p>
+            <p><strong>Телефон:</strong> <span id="detail-phone"></span></p>
+            <p><strong>Email:</strong> <span id="detail-email"></span></p>
+        </div>
+    </section>
+</main>
+{% endblock content %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Фильм</title>
+</head>
+<body itemscope itemtype="https://schema.org/Movie">
+    <main>
+        <header>
+            <h1 itemprop="name">{{ movie.title }}</h1>
+        </header>
+        <section>
+            <img itemprop="image" src="{{ movie.poster.url }}" alt="" style="height:300px;">
+            <p itemprop="description">{{ movie.description }}</p>
+            <p itemprop="datePublished">Дата выпуска: {{ movie.date }}</p>
+            <p>Рейтинг: {{ movie.rating }}</p>
+            <p itemprop="duration">Продолжительность: {{ movie.duration }} мин</p>
+            <p itemprop="genre">Жанр: {% for genre in movie.genres.all %}{{ genre }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+            <p itemprop="countryOfOrigin">Страна(-ы): {{ movie.country }}</p>
+            <p>Бюджет: {{ movie.budget }} $ USD</p>
+        </section>
+        {% if tmdb_movie %}
+        <section>
+            <h2>Additional Details from TMDb</h2>
+            <p itemprop="name" translate="yes">Title: {{ tmdb_movie.title }}</p>
+            <p itemprop="description" translate="yes">Overview: {{ tmdb_movie.overview }}</p>
+        </section>
+        {% endif %}
+    </main>
+</body>
+</html>

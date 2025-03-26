@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Код
+{% endblock title %}
+{% block header %}
+    Так мы рассчитываем статистику по возрасту:
+{% endblock header %}
+
+{% block content %}
+<main>
+    <section>
+        <pre>
+            <code>
+ages = int(input("Введите возраста клиентов через пробел: "))
+ages = [client.age for client in clients]
+avg_age = round(mean(ages), 2)
+median_age = median(ages)
+print("Средний возраст: ", avg_age)
+print("Медианный возраст: ", median_age)
+            </code>
+        </pre>
+        <p>Переменные <var>ages</var>, <var>avg_age</var>, <var>median_age</var>.</p>
+        <p>Вывод может быть следующим:</p>
+        <samp>Средний возраст: 38.34<br>Медианный возраст: 16</samp>
+        <p>Пользователь может ввести массив чисел: <kbd>10 16 89</kbd>.</p>
+    </section>
+</main>
+{% endblock content %}

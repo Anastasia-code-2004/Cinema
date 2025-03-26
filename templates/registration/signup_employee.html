@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сотрудник</title>
+</head>
+<body>
+    <header>
+        <h2>Регистрация сотрудника</h2>
+    </header>
+    <main>
+        <section>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Зарегист��ироваться">
+            </form>
+        </section>
+        <nav>
+            <a href="{% url 'login' %}">Ко входу</a>
+            <a href="{% url 'home' %}">На главную</a>
+        </nav>
+    </main>
+</body>
+</html>

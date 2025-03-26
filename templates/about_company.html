@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block title %}О компании{% endblock title %}
+{% block content %}
+    <main>
+        <section>
+            <img
+            src="/media/logo.jpeg"
+            alt="Логотип Синема Миракл"
+            class="logo-element">
+            <iframe
+                name="Video about cinema"
+                src="https://www.youtube.com/embed/AbHTepxeeRY" 
+                width="560" 
+                height="349" 
+                style="display: block; margin: 0 auto;" 
+                allowfullscreen>
+            </iframe>
+        </section>
+        {% if history_items %}
+            <section id="history-section">
+                <h2>История компании</h2>
+                <ul>
+                    {% for history in history_items %}
+                        <li>
+                            <span class="history-year">{{ history.data|date:"Y" }}</span>
+                            <span class="history-event">{{ history.content }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+        
+        <!-- Свидетельство компании -->
+        <section aria-labelledby="certificate-title" class="certificate-section">
+            <h2 id="certificate-title" class="certificate-title">Свидетельство</h2>
+            <article class="certificate-article">
+                <header class="certificate-header">
+                    <h3>ЕДИНЫЙ РЕЕСТР КИНОТЕАТРОВ</h3>
+                    <h4>СВИДЕТЕЛЬСТВО о внесении сведений</h4>
+                    <p><time datetime="2024-09-10">10 сентября 2024</time>, г. Минск</p>
+                </header>
+                <section class="certificate-info">
+                    <p><strong>Общество с ограниченной ответственностью<br>"Синема Миракл"</strong><br>
+                    ИНН: 7723456789<br>
+                    Регистрационный номер: 8241</p>
+                </section>
+                <div class="certificate-footer">
+                    <p><strong>Директор Ассоциации "КиноСоюз"</strong></p>
+                    <p><img src="/media/certificate/signature.png" alt="Signature" class="signature"></p>
+                    <p>А. С. Николайчик</p>
+                    <div class="stamp-placeholder">
+                        <img src="/media/certificate/stamp.png" alt="Stamp">
+                    </div>
+                    <p><em>Место для печати и подписи</em></p>
+                    <p>Сертификат о членстве в реестре кинотеатров.<br>Утверждено согласно правилам.</p>
+                </div>
+            </article>
+        </section>
+        <!-- Реквизиты -->
+        <section aria-labelledby="company-details-title" class="company-details-section">
+            <h2 id="company-details-title" class="company-details-title">Реквизиты компании</h2>
+            <article class="company-details-article">
+                <div class="company-details-card">
+                    <strong>Юридический адрес:</strong>
+                    <p class="address-info">123456, г. Минск, ул. Счастья, д. 1</p>
+                </div>
+                <div class="company-details-card">
+                    <strong>Фактический адрес:</strong>
+                    <p class="address-info">123456, г. Минск, ул. Счастья, д. 2</p>
+                </div>
+                <div class="company-details-card">
+                    <strong>Телефон:</strong>
+                    <p>+7 (495) 123-45-67</p>
+                </div>
+                <div class="company-details-card">
+                    <strong>Электронная почта:</strong>
+                    <p>info@cinemamiracle.com</p>
+                </div>
+                <div class="company-details-card">
+                    <strong>ИНН:</strong>
+                    <p>7723456789</p>
+                </div>
+                <div class="company-details-card">
+                    <strong>ОГРН:</strong>
+                    <p>1027700132195</p>
+                </div>
+                <div class="company-details-card">
+                    <strong>Банк:</strong>
+                    <p>ПАО "Сбербанк"</p>
+                </div>
+                <div class="company-details-card">
+                    <strong>Корреспондентский счет:</strong>
+                    <p class="account-info">30101810400000000225</p>
+                </div>
+                <div class="company-details-card">
+                    <strong>Расчетный счет:</strong>
+                    <p class="account-info">40702810600000000000</p>
+                </div>
+                <div class="company-details-card">
+                    <strong>КПП:</strong>
+                    <p>772301001</p>
+                </div>
+            </article>
+        </section>
+        <section class="privacy-policy-section">
+            <p>Здесь наша <a href="{% url 'privacy_policy' %}#privacy_policy" class="privacy-link">
+                политика конфиденциальности</a>.</p>
+        </section>
+    </main>
+{% endblock content %}

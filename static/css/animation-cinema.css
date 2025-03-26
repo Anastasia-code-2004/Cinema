@@ -1,0 +1,49 @@
+.cinema-animation {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* 50% от высоты окна просмотра */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: background-cinema 10s infinite;
+}
+.company-name {
+    position: absolute;
+    bottom: 20px; /* Позиционируем текст */
+    left: 50%;
+    transform: translateX(-50%); /* Центрируем текст */
+    font-size: 2em;
+    color: white; /* Цвет текста */
+    opacity: 0; /* Начинаем с полной прозрачности */
+    animation: show-name 10s infinite; /* Появление текста */
+}
+
+@keyframes show-name {
+    0%, 65% { opacity: 0; } /* Текст остается невидимым до 90% */
+    90% { opacity: 1; } /* Текст появляется и остается видимым */
+    100% { opacity: 0; } /* Текст исчезает */
+}
+
+@keyframes background-cinema {
+    0%{
+        background-image: url("/media/animation-cinema/1.jpg");
+    }
+    15%{
+        background-image: url("/media/animation-cinema/2.png");
+    }
+    30%{
+        background-image: url("/media/animation-cinema/4.jpeg");
+    }
+    55%{
+        background-image: url("/media/animation-cinema/3.jpeg");
+    }
+    65%{
+        background-image: url("/media/animation-cinema/4.jpeg");
+    }
+    90%{
+        background-image: url("/media/animation-cinema/5.png");
+    }
+    100%{
+        background-image: url("/media/animation-cinema/1.jpg");
+    }
+}

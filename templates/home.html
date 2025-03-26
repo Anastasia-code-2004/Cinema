@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}Синема Миракл{% endblock title %}
+{% block scripts %}
+    <script src ="/static/js/count-timer.js"></script>
+    <script src ="/static/js/slider.js"></script>
+    <script src ="/static/js/animation-cups.js"></script>
+{% endblock scripts%}
+{% block content %}
+<main class="home">
+    <img 
+        src="/media/logo.jpeg"
+        alt="Логотип Синема Миракл"
+        class="logo-element">
+    
+    <div id="countdown-timer"></div>
+    <section class="awards">
+        <div class="award" id="award1">
+            <img src="/media/animation-cups/1.png" alt="Cup 1">
+        </div>
+        <div class="award" id="award2">
+            <img src="/media/animation-cups/2.png" alt="Cup 2">
+        </div>
+        <div class="award" id="award3">
+            <img src="/media/animation-cups/3.png" alt="Cup 3">
+        </div>
+    </section>
+    <section class="content">
+        <div class="news-section">
+            <h2 class="section-title">Последние новости</h2>
+            
+            <!-- Слайдер -->
+            <section class="slider-section">
+                <div class="slider-container">
+                    <!-- Индикатор текущего слайда -->
+                    <div class="slide-number"></div>
+                    <!-- Слайды -->
+                    <div class="slider">
+                        {% for news_item in latest_news %}
+                            <div class="slide" data-id="{{ news_item.id }}">
+                                <img src="{{ news_item.image.url }}" alt="{{ news_item.title }}" class="slide-image">
+                                <div class="slide-caption">
+                                    <h3>{{ news_item.title }}</h3>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+        
+                    <!-- Стрелки навигации -->
+                    <span class="prev-btn">&#10094;</span>
+                    <span class="next-btn">&#10095;</span>
+        
+                    <!-- Пагинация -->
+                    <div class="pagination"></div>
+                    <input type="hidden" id="sliderDelay" value="{{ slider_delay }}" />
+                    <input type="hidden" id="loop" value="{{ loop }}" />
+                    <input type="hidden" id="navs" value="{{ navs }}" />
+                    <input type="hidden" id="pags" value="{{ pags }}" />
+                    <input type="hidden" id="auto" value="{{ auto }}" />
+                    <input type="hidden" id="stopMouseHover" value="{{ stopMouseHover }}" />
+                </div>
+            </section>
+        </div>
+
+        <section class="partners-section">
+            <h2 class="section-title">Наши партнеры</h2>
+            <div class="partners-list">
+                {% for partner in partners %}
+                    <figure>
+                        <a href="{{ partner.link }}" target="_blank">
+                            <img src="{{ partner.logo.url }}" alt="{{ partner.name }}" class="partner-logo"></a>
+                        <figcaption>{{ partner.name }}</figcaption>
+                    </figure>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="ads-section">
+            <h2 class="section-title">Реклама</h2>
+            <div class="ads-container">
+                <img src="/media/ads/ad_drinks.png" alt="Реклама">
+                <img src="/media/ads/ad_tickets.png" alt="Реклама">
+                <img src="/media/ads/ad_hall.png" alt="Реклама">
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="quote-section">
+            {% if quote %}
+                <h2 class="quote">Цитата дня:</h2>
+                <blockquote cite="https://favqs.com/api/qotd">{{ quote }}</blockquote>
+            {% endif %}
+        </section>
+    </section>
+</main>
+{% endblock content %}

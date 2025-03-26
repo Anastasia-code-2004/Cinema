@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Вход{% endblock title %}
+
+{% block content %}
+    <main>
+        <h2 id="login-header">Вход</h2>
+        <section>
+            <form method="post">
+                <fieldset title="Login info">
+                    <legend>Данные для входа</legend>
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <p>
+                        <input type="submit" value="Войти">
+                        <input type="button" value="Регистрация" onclick="location.href='{% url 'signup' %}'">
+                    </p>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+{% endblock content %}

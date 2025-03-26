@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Посылки(2){% endblock title %}
+{% block scripts %}
+    <script src="/static/js/package-extends.js"></script>
+{% endblock scripts %}
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/package.css' %}">
+{% endblock link %}
+{% block content %}
+    <main>
+        <div class="container">
+            <h1 class="page-title">Добавление и вывод почтовых посылок</h1>
+            
+            <!-- Форма для добавления посылки -->
+            <div class="form-group">
+                <label for="sender">Отправитель:</label>
+                <input type="text" id="sender" class="input-field" placeholder="Введите фамилию отправителя">
+            </div>
+            <div class="form-group">
+                <label for="recipient">Получатель:</label>
+                <input type="text" id="recipient" class="input-field" placeholder="Введите фамилию получателя">
+            </div>
+            <div class="form-group">
+                <label for="weight">Вес посылки (кг):</label>
+                <input type="number" id="weight" class="input-field" placeholder="Введите вес посылки" max="1000">
+            </div>
+            <div class="form-group">
+                <label for="sendDate">Дата отправления:</label>
+                <input type="date" id="sendDate" class="input-field">
+            </div>
+            <div class="form-group">
+                <label for="receiveDate">Дата получения:</label>
+                <input type="date" id="receiveDate" class="input-field">
+            </div>
+            
+            <button class="button" id="addPackageBtn">Добавить посылку</button>
+    
+            <!-- Кнопка для вывода всех посылок -->
+            <button class="button" id="displayPackagesBtn">Показать все посылки</button>
+            <!-- Кнопка для вывода результатов -->
+            <button class="button" id="displayRecipientsBtn">Получатели с несколькими посылками</button>
+    
+            <!-- Список посылок -->
+            <div class="output">
+                
+                <div class="package-list" id="packageList">
+                    <!-- Здесь будут отображаться добавленные посылки -->
+                </div>
+            </div>
+            
+            <!-- Результаты -->
+            <div class="output">
+                
+                <div class="recipient-list" id="recipientList">
+                    <!-- Здесь будут отображаться результаты анализа -->
+                </div>
+            </div>
+
+        </div>
+    </main>
+{% endblock content %}

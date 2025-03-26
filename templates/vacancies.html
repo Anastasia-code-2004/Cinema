@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Вакансии{% endblock title %}
+{% block content %}
+    <main>
+        <h2 id="vacancies" class="section-title">Вакансии</h2>
+        <section class="job-list">
+            {% for i in all_items %} 
+                <div class="job-item">
+                    <h3 class="job-title">{{ i.title }}</h3>
+                    <p class="job-description">{{ i.description }}</p>
+                </div>
+            {% endfor %}
+        </section>
+    </main>
+{% endblock content %}

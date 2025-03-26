@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Контакты{% endblock title %}
+{% block content %}
+    <main>
+        <section>
+            <h2>Сотрудники</h2> <!-- Добавлен заголовок для внешней секции -->
+            <div class="employee-list"> <!-- Контейнер для Flexbox -->
+                {% for employee in employees %}
+                    <div class="employee-item"> <!-- Элемент для каждого сотрудника -->
+                        <img src="{{ employee.photo.url }}" 
+                             alt="Сотрудник {{ employee.user.username }}" 
+                             title="{{ employee.user.username }}">
+                        <h3 class="employee-name">{{ employee.user.username }}</h3>
+                        <p class="employee-job-description">{{ employee.job_description }}</p>
+                        <p class="employee-phone">Телефон: {{ employee.user.contact.phone }}</p>
+                        <p class="employee-email">Email: {{ employee.user.contact.email }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+{% endblock content %}

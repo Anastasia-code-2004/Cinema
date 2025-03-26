@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Индекс
+{% endblock title %}
+{% block scripts %}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAu991hRVht7Olgs35dTY3DUiBagtHTEg&callback=initMap" 
+            async defer></script>
+    <script src ="/static/js/location.js"></script>
+{% endblock scripts %}
+{% block content %}
+    <main class="main-content">
+        {% include "preloader.html" %}
+
+        <!-- Заголовок Календарь -->
+        <section class="calendar-section">
+            <h1 class="calendar-title">Календарь</h1>
+            <p class="today">Сегодня: {{ d }}</p>
+            <div class="calendar-output">{{ html_out|safe }}</div>
+        </section>
+
+        <!-- Текущая дата -->
+        <section class="date-section">
+            <h4 class="current-date">
+                Текущее: 
+                <a rel="nofollow" href="https://time-in.ru/time/minsk" target="_blank" title="Перейти на сайт time-in.ru">
+                {{date|date:"d/m/Y"}} ({{timezone}})</a>
+            </h4>
+        </section>
+
+        <!-- Геолокация и Карта -->
+        <section class="location-section">
+            <h2>Карта и ваше местоположение</h2>
+            <div id="map" style="height: 400px; width: 100%;"></div>
+            <p id="user-coordinates" style="margin-top: 10px; font-size: 16px; color: #333;">
+                Определяем ваше местоположение...
+            </p>
+        </section>
+
+        
+        <!-- Сюрприз -->
+        <section class="surprise-section">
+            <p class="surprise-text">
+                <small>А тут для вас 
+                    <a href="https://drive.google.com/uc?export=download&id=1ESCQ--Qo7ero8xFwXb4IQBdVeVAziwrr" download>
+                    сюрприз</a>...
+                </small>
+            </p>
+        </section>
+
+        <!-- Медиа-блок -->
+        <section class="media-container">
+            <div class="media-block">
+                <video width="360" height="240" src="/media/serials.mp4" controls preload="auto" class="media-video">
+                    Видео не может быть отображено
+                </video>
+            </div>
+            <div class="media-block">
+                <audio src="/media/Harry_Styles-Cinema.mp3" controls preload="none" class="media-audio">
+                    Аудио не может быть отображено
+                </audio>
+            </div>
+        </section>
+
+        <!-- Анимационный блок -->
+        <section class="animation-section">
+            <div class="animation-output">
+                {% include "cinema_animation.html" %}
+            </div>
+        </section>
+    </main>
+{% endblock content %}

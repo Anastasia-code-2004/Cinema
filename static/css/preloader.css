@@ -1,0 +1,64 @@
+/* Стили для контейнера с точками */
+.preloader {
+    display: grid;
+    grid-template-columns: repeat(5, 20px); /* Изменили ширину колонок */
+    grid-gap: 10px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.dot {
+    width: 20px; /* Уменьшили размер */
+    height: 20px; /* Уменьшили размер */
+    border-radius: 50%;
+    background-color: #b0c4de; /* Цвет по умолчанию (светло-голубой) */
+    opacity: 0;
+    animation: fadeIn 3.5s forwards infinite alternate; /* Увеличенное время анимации */
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Проявление, объект не прозрачен */
+    }
+}
+
+.dot:nth-child(1),
+.dot:nth-child(10),
+.dot:nth-child(14),
+.dot:nth-child(18) {
+    background-color: #87ceeb; /* Светло-голубой */
+    animation-delay: 0.5s; /* Задержка для появления */
+}
+
+.dot:nth-child(2),
+.dot:nth-child(6),
+.dot:nth-child(15),
+.dot:nth-child(19) {
+    background-color: #ffb6c1; /* Светло-розовый */
+    animation-delay: 1.0s; /* Задержка для появления */
+}
+
+.dot:nth-child(3),
+.dot:nth-child(7),
+.dot:nth-child(11),
+.dot:nth-child(20) {
+    background-color: #dda0dd; /* Светло-фиолетовый */
+    animation-delay: 1.7s; /* Задержка для появления */
+}
+
+.dot:nth-child(4),
+.dot:nth-child(8),
+.dot:nth-child(12),
+.dot:nth-child(16) {
+    background-color: #ffe4b5; /* Светло-желтый */
+    animation-delay: 2.4s; /* Задержка для появления */
+}
+
+.dot:nth-child(5),
+.dot:nth-child(9),
+.dot:nth-child(13),
+.dot:nth-child(17) {
+    background-color: #ffdab9; /* Светлый персиковый */
+    animation-delay: 3.0s; /* Задержка для появления */
+}

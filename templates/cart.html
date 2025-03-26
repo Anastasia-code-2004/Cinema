@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Корзина{% endblock title %}
+{% block header %}Билеты в корзине{% endblock header %}
+{% block content %}
+    <main>
+        <section>
+            <ul>
+            {% for cartitem in cartitems %}
+                <li>
+                    <section>
+                        <fieldset title="Ticket info">
+                            <h2>Фильм: {{ cartitem.showtime.movie.title }}</h2>
+                            <p>Время начала: {{ cartitem.showtime.start_time }}</p>
+                            <p>Зал: {{ cartitem.showtime.hall.name }}</p>
+                            <p>Стоимость билета(-ов): {{ cartitem.price }}</p>
+                            <p>Количество билета(-ов): {{ cartitem.quantity }}</p>
+                            
+                            <!-- Кнопки управления количеством -->
+                            <form method="post" action="{% url 'update_cartitem_quantity' cartitem.id %}">
+                                {% csrf_token %}
+                                <button type="submit" name="action" value="decrease">-</button>
+                                <button type="submit" name="action" value="increase">+</button>
+                            </form>
+
+                            <!-- Кнопка удаления -->
+                            <form method="post" action="{% url 'remove_from_cart' cartitem.id %}">
+                                {% csrf_token %}
+                                <button type="submit">Удалить</button>
+                            </form>
+
+                            <!-- Кнопка оплаты -->
+                            <form method="post" action="{% url 'checkout_cartitem' cartitem.id %}">
+                                {% csrf_token %}
+                                <button type="submit">Оплатить</button>
+                            </form>
+                        </fieldset>
+                    </section>
+                </li>
+            {% empty %}
+                <li>Корзина пуста.</li>
+            {% endfor %}
+            </ul>
+        </section>
+    </main>
+{% endblock content %}

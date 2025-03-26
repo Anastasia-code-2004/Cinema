@@ -1,0 +1,59 @@
+/* Оформление секции промокодов */
+.promo-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Карточка промокода */
+.promo-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    max-width: 300px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.promo-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Заголовок промокода */
+.promo-code {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Информация о скидке */
+.promo-discount {
+    font-size: 1.3rem;
+    color: #c79cdf; /* Цвет, который подходит к основной палитре сайта */
+    margin-bottom: 15px;
+}
+
+/* Статус промокода */
+.promo-status {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Разделитель между карточками */
+.promo-divider {
+    border: none;
+    height: 3px;
+    background-color: #bde0fe;
+    margin: 15px 0;
+}
+
+/* Общее оформление текста */
+.promo-card p {
+    color: #555;
+}
+

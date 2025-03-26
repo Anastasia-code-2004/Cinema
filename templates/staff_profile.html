@@ -1,0 +1,43 @@
+{% extends "profile.html" %}
+{% block title %}Профиль{% endblock title %}
+{% block content %}
+    
+    {{ block.super }}
+    
+    <main>
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="{% url 'stats' %}">Статистика</a></li> 
+                <li><a href="{% url 'clients_and_purchases' %}">Клиенты</a></li>
+                <li><a href="{% url 'staff' %}">Сотрудники</a></li>
+                <!-- <li><a href="{% url 'movies_and_sales' %}">Фильмы</a></li> -->
+                <!-- <li><a href="{% url 'edit_genres' %}" class="btn btn-primary">Редактировать жанры</a></li> -->
+                <li><a href="{% url 'package_prototype' %}" class="btn btn-primary">Посылки(1)</a></li>
+                <li><a href="{% url 'package_extends' %}" class="btn btn-primary">Посылки(2)</a></li>
+            </ul>
+        </aside>
+        <section class="content">
+            
+            <section class="sales-section">
+                <h3 class="sales-total" >Сумма продаж: {{ total_sales|floatformat:2 }}</h3>
+                <ul class="ticket-list" style="margin-top: 200px">
+                    {% for ticket in tickets %}
+                        <li class="ticket-item">
+                            <fieldset title="Ticket info">
+                                <legend>Информация о билете</legend>
+                                <h2>Фильм: {{ ticket.showtime.movie.title }}</h2>
+                                <h3>Клиент: {{ ticket.user.user.username }}</h3>
+                                <p>Время начала: {{ ticket.showtime.start_time }}</p>
+                                <p>Зал: {{ ticket.showtime.hall.name }}</p>
+                                <p>Время покупки билета: {{ ticket.purchase_time }}</p>
+                                <p>Стоимость билета: {{ ticket.price }}</p>
+                            </fieldset>
+                        </li>
+                    {% empty %}
+                        <li>Нет купленных билетов.</li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </section>
+    </main>
+{% endblock content %}

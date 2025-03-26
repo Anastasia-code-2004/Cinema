@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Вопрос-ответ{% endblock title %}
+{% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/theaterjs@3.0.0/dist/theater.min.js"></script>
+    <script src="/static/js/theater.js"></script>
+{% endblock scripts %}
+{% block content %}
+<main class="faq-page">
+    <section class="faq-section">
+        <h2 class="faq-title">Часто задаваемые вопросы</h2>
+        {% for i in all_items %}
+            <article class="faq-item">
+                <details class="faq-details">
+                    <summary class="faq-question">{{ i.question }}</summary>
+                    <p class="faq-answer">{{ i.answer }}</p>
+                    <p class="faq-date"><small>Добавлено: {{ i.date_question }}</small></p>
+                </details>
+            </article>
+        {% endfor %}
+    </section>
+    <section class="theater-section">
+        <div class="scene">
+            <div class="actor">
+                <div class="actor__prefix">-</div>
+                <div id="viewer" class="actor__content"></div>
+            </div>
+
+            <div class="actor">
+                <div class="actor__prefix">-</div>
+                <div id="cashier" class="actor__content"></div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock content %}

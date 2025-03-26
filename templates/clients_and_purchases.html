@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Клиенты{% endblock title %}
+{% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+    <script src="/static/js/chart.js"></script>
+{% endblock scripts %}
+{% block content %}
+    <div class="table-container">
+        <table id="stats">
+        <caption>Клиенты и их покупки</caption>
+            <thead>
+                <tr>
+                    <th>Клиент</th>
+                    <th>Общая сумма покупок</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for client, total_purchases in clients_and_purchases %}
+                    <tr>
+                        <td class="short-description">{{ client.user.username }}</td>
+                        <td class="short-description">{{ total_purchases }}</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <th class="short-description"><strong>Итого:</strong></th>
+                    <th class="short-description"><strong>{{ total_purchases_amount }}</strong></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="chart-container">
+        <h1>Результаты вычислений синуса</h1>
+    
+        <!-- График -->
+        <div style="width: 900px; height: 450px;">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+    <!-- Таблица с результатами -->
+    <div class="results-container">
+        <table class="results-table">
+            
+            <thead>
+                <tr>
+                    <th>x</th>
+                    <th>F(x) (разложение в ряд)</th>
+                    <th>n (количество членов ряда)</th>
+                    <th>Math.sin(x)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for x_val, sin_series, n, math_sin in results %}
+                <tr>
+                    <td>{{ x_val }}</td>
+                    <td>{{ sin_series }}</td>
+                    <td>{{ n }}</td>
+                    <td>{{ math_sin }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script id="chart-data" type="application/json">
+        {{ chart_data|safe }}
+    </script>
+{% endblock content %}

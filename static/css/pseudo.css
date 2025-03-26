@@ -1,0 +1,76 @@
+.image-container {
+    text-align: center; /* Центрирует содержимое внутри контейнера */
+}
+
+.image-container img {
+    max-width: 100%; /* Максимальная ширина изображения равна ширине контейнера */
+    height: auto; /* Подстраивает высоту изображения под ширину */
+}
+
+a:link{
+    color: #7cbafa;
+    text-decoration: none;
+}
+a:visited{
+    color: #ffafcc;
+    text-decoration: none;
+}
+a:hover{
+    color: #cdb4db;
+    text-decoration: none;
+}
+a:active{
+    color: #ff00ff;
+    text-decoration: none;
+}
+.form-input:focus{
+    border: 2px solid #8a2be2;
+    outline: none;
+}
+
+
+
+
+/*Цитаты на разных языках*/
+q:lang(de){
+    quotes: "\201E" "\201C";
+}
+q:lang(en){
+    quotes: "\201C" "\201D";
+}
+q:lang(fr), q:lang(ru){
+    quotes: "\00AB" "\00BB";
+}
+
+/*Выделение первой буквы*/
+p[class|="news"]::first-letter, article.news-details p::first-letter{
+    font-size: 150%;
+    color: #ffafcc;
+}
+blockquote[lang="ru"]:after{
+    content: "®";
+}
+a[href^="tel"]:before{
+    content: "\260E";
+}
+ul[title$="rights"] > li{
+    list-style-type: none;
+    margin-left: -20px;
+}
+ul[title$="rights"] > li {
+    position: relative;
+    padding-left: 1.20em;
+}
+ul[title$="rights"] > li:before{
+    content: "\2606";
+    position: absolute;
+    left: 0;
+}
+*::selection{
+    background: #ffafcc;
+    color: #780116;
+}
+
+
+
+

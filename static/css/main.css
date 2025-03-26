@@ -1,0 +1,595 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+@font-face {
+    font-family: 'Afacad Flux Light 300';
+    src: url('/static/fonts/AfacadFlux-Light.ttf') format('truetype'); /* Путь к шрифту и его формат */
+}
+
+body {
+    margin-top: 120px;
+    background-color: white;
+    font-family: 'Open Sans', 'Afacad Flux Light 300', sans-serif;
+}
+
+
+.employee-list {
+    display: flex; /* Используем Flexbox */
+    flex-wrap: wrap; /* Позволяем элементам переноситься на новую строку */
+    justify-content: space-between; /* Промежутки между элементами */
+    padding: 20px; /* Отступы вокруг списка сотрудников */
+}
+
+.employee-item {
+    flex: 1 1 calc(33% - 20px); /* Задаем ширину элементов (3 в ряд) с учетом отступов */
+    margin: 10px; /* Отступы вокруг каждого элемента */
+    border: 1px solid #ccc; /* Обводка вокруг элемента */
+    border-radius: 8px; /* Закругленные углы */
+    padding: 20px; /* Увеличенные внутренние отступы для более просторного оформления */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Более глубокая тень для большего эффекта */
+    transition: transform 0.3s, box-shadow 0.3s; /* Добавляем плавный переход и для тени */
+    background-color: #fff; /* Белый фон для карточки */
+    text-align: center; /* Центрируем содержимое карточки */
+}
+
+.employee-item:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Усиление тени при наведении */
+}
+
+.employee-item img {
+    width: 100px; /* Уменьшенная ширина для более компактного вида */
+    height: 100px; /* Высота равная ширине для пропорций */
+    border-radius: 50%; /* Делаем изображение круглым */
+    display: block; /* Убираем отступы под изображением */
+    margin: 0 auto 15px auto; /* Центрируем изображение и добавляем отступ снизу */
+    border: 2px solid #c573ea; /* Добавляем обводку вокруг изображения для акцента */
+}
+
+.employee-name {
+    font-size: 20px; /* Увеличенный размер имени сотрудника */
+    font-weight: bold; /* Делаем имя жирным */
+    color: #333; /* Основной цвет */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+.employee-job-description {
+    font-size: 16px; /* Чуть больший размер шрифта для описания должности */
+    color: #777; /* Серый цвет для описания должности */
+    margin-bottom: 15px; /* Отступ снизу */
+}
+
+.employee-phone, .employee-email {
+    font-size: 14px; /* Размер шрифта для контактов */
+    color: #555; /* Цвет для контактов чуть темнее описания должности */
+    margin-bottom: 5px; /* Отступы между контактными данными */
+    padding: 8px; /* Внутренние отступы для фона */
+    border-radius: 5px; /* Закругленные углы для контактов */
+}
+
+.employee-phone::before, .employee-email::before {
+    content: '📞 '; /* Добавляем иконку перед телефоном */
+    display: inline-block;
+}
+.employee-email::before {
+    content: '✉️ '; /* Добавляем иконку перед email */
+}
+
+
+.employee-item:hover, .logo-element:hover, .partner-logo:hover {
+    transform: scale(1.02); /* Увеличение при наведении */
+}
+
+.employee-item img {
+    width: 50%; /* Уменьшаем ширину картинки до 50% от родителя */
+    height: auto; /* Сохранение пропорций */
+    border-radius: 8px; /* Закругленные углы для картинки */
+    display: block; /* Убираем отступы под изображением */
+    margin: 0 auto; /* Центрируем изображение */
+}
+
+div.employee-item h3 {
+    margin: 10px 0; /* Отступы для заголовка */
+}
+
+div.employee-item p {
+    margin: 5px 0; /* Отступы для параграфов */
+}
+section.job-list:after {
+    content: '';
+    display: block;
+    clear: both;
+    visibility: hidden;
+}
+
+.job-item {
+    width: calc(30% - 10px); /* Устанавливаем ширину карточки, оставляя отступы */
+    margin-right: 10px; /* Отступ справа */
+    margin-bottom: 20px; /* Отступ между карточками по вертикали */
+    padding: 20px; /* Внутренние отступы */
+    background-color: #f9f9f9; /* Светлый фон для карточек */
+    border: 1px solid #ddd; /* Легкая граница */
+    border-radius: 8px; /* Закругленные углы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Небольшая тень */
+    float: left; /* Используем float для выравнивания карточек */
+    height: 250px; /* Устанавливаем фиксированную высоту карточки */
+    overflow: hidden; /* Скрываем контент, выходящий за пределы карточки */
+}
+
+.job-title {
+    font-size: 1.5rem; /* Размер шрифта заголовка вакансии */
+    margin: 0 0 10px 0; /* Отступы */
+    color: #444; /* Цвет заголовка */
+    font-weight: 700; /* Жирный шрифт */
+}
+
+.job-description {
+    font-size: 1rem; /* Размер шрифта описания */
+    margin: 0; /* Убираем отступы */
+    color: #333; /* Цвет текста описания */
+    text-align: justify;
+}
+
+
+/* Основные стили для формы */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Легенда и заголовки формы */
+legend {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Стили для полей формы */
+input[type="text"],
+input[type="password"],
+input[type="submit"],
+input[type="button"],
+textarea{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* Стили для кнопок */
+input[type="submit"], input[type="button"] {
+    background-color: #fd7bac;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Чтобы кнопки занимали всю ширину, аналогично input */
+    box-sizing: border-box; /* Чтобы паддинг не выходил за границы */
+}
+
+/* Эффект при наведении на кнопки */
+button:hover, input[type="submit"]:hover, input[type="button"]:hover {
+    background-color: #c573ea;
+}
+
+input:enabled[type="text"], input:enabled[type="password"], textarea:enabled {
+    background-color: white;
+    color: #333; /* Темный цвет текста */
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Плавный переход эффектов */
+}
+
+/* Обязательные поля */
+input:required[type="text"],
+input:required[type="email"],
+input:required[type="tel"],
+input:required[type="url"]
+{
+    border-color: #3ba1bf; /* Оранжевая рамка для обязательных полей */
+    background-color: #fffaf0; /* Светлый фон */
+}
+
+/* Заблокированные поля */
+input:disabled {
+    background-color: #f0f0f0;
+    border-color: #999;
+    color: #777;
+}
+
+/* Сообщение об ошибке для полей */
+input:out-of-range[type="number"] {
+    border-color: red; /* Красная рамка для неверных данных */
+}
+
+/* Стиль для заголовка секции */
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+/* Стили для элемента fieldset */
+fieldset {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Стили для отступов внутри формы */
+p {
+    margin: 10px 0;
+}
+
+/* Подписи к полям */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+
+
+/* Стили для всех таблиц на сайте */
+caption {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+table {
+    width: 80%; /* Сокращаем ширину таблицы до 80% контейнера */
+    margin: 20px auto; /* Центрируем таблицу и добавляем отступы сверху и снизу */
+    border-collapse: collapse;
+    background-color: #fff; /* Белый фон для таблицы */
+    empty-cells: show;
+}
+/* Стили для пустых ячеек */
+td:empty {
+    background-color: #f4cccc; /* Задаём фон для пустых ячеек */
+}
+/* Стили для заголовков таблиц */
+table th, table#stats tr:last-child {
+    background-color: #f8c7b5; /* Цвет заголовочной строки */
+    color: white; /* Белый текст */
+    font-weight: bold; /* Полужирный шрифт */
+    padding: 8px; /* Компактные внутренние отступы */
+    text-align: left; /* Выравнивание текста по левому краю */
+    border-bottom: 2px solid #fdb29b; /* Темная граница для заголовков */
+}
+
+/* Стили для ячеек таблицы */
+table td {
+    padding: 6px 10px; /* Компактные отступы внутри ячеек */
+    border-bottom: 1px solid #ddd; /* Граница снизу между строками */
+    vertical-align: top; /* Выравнивание текста по верхнему краю */
+}
+
+/* Чередование цветов строк */
+table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Светло-серый фон для чётных строк */
+}
+
+table tr:nth-child(odd) {
+    background-color: #ffffff; /* Белый фон для нечётных строк */
+}
+
+/* Наведение на строку */
+table tr:hover {
+    background-color: #f1f1f1; /* Серый фон при наведении */
+}
+table a:hover {
+    color: #c573ea; /* Цвет ссылок при наведении */
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+table th {
+    text-align: center; /* Горизонтальное выравнивание заголовков */
+    vertical-align: middle; /* Вертикальное выравнивание */
+}
+table td.short-description {
+    text-align: center; /* Горизонтальное выравнивание заголовков */
+    vertical-align: middle; /* Вертикальное выравнивание */
+}
+/* Стили для кнопки "Отправить отзыв" */
+button[type="submit"]{
+    background-color: #fd7bac; /* Цвет фона кнопки */
+    color: white; /* Цвет текста */
+    border: none; /* Убираем границу */
+    cursor: pointer; /* Курсор-указатель при наведении */
+    padding: 12px 20px; /* Увеличенные внутренние отступы */
+    border-radius: 6px; /* Закругленные углы */
+    font-size: 1.1rem; /* Увеличенный размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Плавные переходы */
+    width: 100%; /* Кнопка занимает всю ширину формы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для кнопки */
+}
+
+/* Эффект при наведении на кнопку */
+button[type="submit"]:hover {
+    background-color: #c573ea; /* Цвет фона при наведении */
+    transform: translateY(-2px); /* Легкое поднятие кнопки */
+}
+
+button, input[type="submit"], input[type="button"] {
+    cursor: pointer; /* Курсор-указатель при наведении */
+}
+
+
+@media (max-width: 768px) {
+    .employee-item {
+        flex: 1 1 100%; /* Один элемент в ряд на небольших экранах */
+        margin: 10px 0; /* Уменьшаем отступы */
+    }
+
+    .employee-item img {
+        width: 70px; /* Еще больше уменьшаем изображение для мобильных устройств */
+        height: 70px;
+    }
+
+    .employee-name {
+        font-size: 16px; /* Еще меньше размер имени сотрудника */
+    }
+
+    .employee-job-description {
+        font-size: 13px; /* Уменьшаем описание должности */
+    }
+
+    .employee-phone, .employee-email {
+        font-size: 11px; /* Уменьшаем шрифт контактов */
+        padding: 6px; /* Уменьшаем padding для мобильных */
+    }
+}
+
+#pagination-controls {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination-button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+.pagination-button.active {
+    background-color: #333;
+    color: #fff;
+}
+
+.pagination-button:hover {
+    background-color: #e0e0e0;
+}
+
+#employee-details {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+#employee-details h3 {
+    text-align: center;
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+#employee-details p {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: #555;
+}
+
+#employee-details p strong {
+    color: #333;
+}
+
+#employee-details p span {
+    color: #777;
+    font-weight: normal;
+}
+
+#employee-details p:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+#employee-details p:last-child {
+    margin-bottom: 0;
+}
+
+section#staff h2, section#staff h3 {
+    text-align: center;
+    color: #444;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+/* Стили кнопок */
+.btn-emp, .btn-cancel {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-emp:hover {
+    background-color: #45a049;
+}
+
+.btn-cancel {
+    background-color: #f44336;
+}
+
+.btn-cancel:hover {
+    background-color: #e03e2f;
+}
+
+/* Форма добавления сотрудника */
+.form-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input[type="text"].employee,
+form input[type="email"],
+form input[type="file"],
+form input[type="url"]{
+    width: 95%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+form input[type="tel"]{
+    width: 95%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.form-buttons {
+    text-align: center;
+}
+
+/* Поисковая строка */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#search-input {
+    width: 60%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+/* Таблица сотрудников */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.styled-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.styled-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.styled-table img {
+    border-radius: 50%;
+}
+
+#pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.page-button {
+    margin: 0 5px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.page-button:hover {
+    background-color: #ddd;
+}
+
+.page-button.active {
+    background-color: #c573ea;
+    color: white;
+    font-weight: bold;
+}
+
+.page-button:disabled {
+    cursor: not-allowed;
+    background-color: #e0e0e0;
+    color: #bbb;
+}
+
+/* Стили для невалидного ввода */
+.invalid-input {
+    border: 2px solid red;
+    background-color: #ffcccc;
+}
+/* Стиль для сообщения об ошибке */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+#save-employee-button:disabled {
+    background-color: #e0e0e0; /* Светло-серый */
+    cursor: not-allowed; /* Курсор в виде блокировки */
+    color: #888; /* Серый цвет текста */
+}
+
+#reward-text {
+    background-color: #f0f8ff; /* Светлый синий для фона */
+    border: 2px solid #0078d4; /* Темно-синий для рамки */
+    color: #333; /* Цвет текста */
+    padding: 10px 15px;
+    border-radius: 8px; /* Закругленные углы */
+    font-size: 16px;
+    font-weight: bold;
+    max-width: 400px; /* Максимальная ширина */
+    margin: 20px auto; /* Центрируем блок */
+    text-align: center; /* Центрируем текст */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+
+

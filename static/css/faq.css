@@ -1,0 +1,103 @@
+/* Стили для страницы "Вопрос-ответ" */
+.faq-page {
+    margin: 50px auto;
+    max-width: 900px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок секции */
+.faq-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Вопросы и ответы */
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-details {
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.faq-details[open] {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.faq-answer {
+    font-size: 1rem;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.faq-date {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 5px;
+    text-align: right;
+}
+
+/* Плавные переходы для открытия/закрытия вопросов */
+details {
+    transition: all 0.3s ease;
+}
+
+details[open] summary::after {
+    content: "▲";
+    float: right;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+summary::after {
+    content: "▼";
+    float: right;
+    font-size: 1.2rem;
+}
+
+
+.scene {
+    padding: 6rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.actor {
+    font-size: 2.8rem;
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.actor:last-of-type {
+    margin-bottom: 6rem;
+}
+
+.actor__content {
+    flex-grow: 1;
+}
+
+.actor__content--typing::after {
+    content: '|';
+    animation: blink 500ms infinite;
+}
+
+@keyframes blink {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

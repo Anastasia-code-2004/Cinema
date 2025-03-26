@@ -1,0 +1,76 @@
+/* Основной контейнер для отзывов */
+.reviews-section {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto; /* Центрируем секцию */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Пространство между карточками */
+}
+
+/* Стили для каждой карточки отзыва */
+.review-item {
+    flex: 1 1 calc(45% - 20px); /* Задаем ширину карточек (2 в ряд) */
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Закругленные углы */
+    background-color: #f9f9f9;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для эффекта глубины */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.review-item:hover {
+    transform: translateY(-5px); /* Легкое поднятие карточки при наведении */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Увеличение тени при наведении */
+}
+
+/* Заголовок с именем клиента */
+.review-item h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+/* Стиль для имени пользователя */
+.review-item h2 {
+    font-size: 1rem;
+    color: #fd7bac; /* Цвет соответствует кнопкам */
+    margin-bottom: 5px;
+}
+
+/* Рейтинг отзыва */
+.review-item p.rating {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #f39c12; /* Цвет, подходящий для рейтинга (например, золотой) */
+    margin-bottom: 10px;
+}
+
+/* Основной текст отзыва */
+.review-item p.text {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+/* Дата публикации */
+.review-item p.date {
+    font-size: 0.9rem;
+    color: #999;
+    text-align: right;
+    margin-top: 10px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+/* Основной заголовок для секции отзывов */
+.reviews-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+

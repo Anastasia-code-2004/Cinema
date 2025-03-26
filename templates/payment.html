@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Оплата{% endblock title %}
+{% block header %}Оплата заказа{% endblock header %}
+{% block content %}
+    <main>
+        <section>
+            <fieldset title="Ticket info">
+                <h2>Фильм: {{ cartitem.showtime.movie.title }}</h2>
+                <p>Время начала: {{ cartitem.showtime.start_time }}</p>
+                <p>Зал: {{ cartitem.showtime.hall.name }}</p>
+                <p>Стоимость билета(-ов): {{ cartitem.price }}</p>
+                <p>Количество билета(-ов): {{ cartitem.quantity }}</p>
+            </fieldset>    
+            <form method="post" action="{% url 'pay' cartitem.id %}" style="display: inline;">
+                    {% csrf_token %}
+                    <label for="promo_code">Промокод:</label>
+                    <input type="text" id="promo_code" name="promo_code">
+                    <input type="submit" value="Оплатить">
+            </form>
+        </section>
+    </main>
+{% endblock content %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Расписание сеансов{% endblock title %}
+{% block scripts %}
+    <script src="/static/js/pagination-schedules.js"></script>
+{% endblock scripts %}
+{% block content %}
+<main class="schedule-main">
+    <section class="filter-section">
+        <form method="get" class="filter-form">
+            <select name="genre" class="filter-input" onchange="this.form.submit()">
+                <option value="">Выберите жанр</option>
+                {% for genre in all_genres %}
+                    <option value="{{ genre.name }}" 
+                            {% if genre.name == request.GET.genre %}selected{% endif %}>
+                            {{ genre.name }}</option>
+                {% endfor %}
+            </select>
+            <input type="date" name="date" class="filter-input" value="{{ request.GET.date }}" 
+                   onchange="this.form.submit()">
+            <input type="number" name="price" class="filter-input" value="{{ request.GET.price }}" 
+                   placeholder="Цена" onchange="this.form.submit()">
+            <input type="text" name="movie" class="filter-input" value="{{ request.GET.movie }}" 
+                   placeholder="Название фильма" onchange="this.form.submit()">
+        </form>
+    </section>
+    
+    <div class="schedule-item">
+    {% for schedule in all_schedules %}
+    <section class="schedule-section">
+        <h2 class="schedule-title">Расписание на {{ schedule.date }}</h2>
+        <div class="showtime-grid">
+            {% for showtime in schedule.showtimes.all %}
+                {% if showtime in all_showtimes %}
+                <article class="showtime-card">
+                    <img src="{{ showtime.movie.poster.url }}" alt="{{ showtime.movie.title }}" class="movie-poster">
+                    <div class="showtime-info">
+                        <p><a href="{% url 'booking' showtime.id %}" class="movie-title">Фильм: {{ showtime.movie.title }}</a></p>
+                        <p>Время начала: {{ showtime.start_time.time }}</p>
+                        <p>Зал: {{ showtime.hall.name }}</p>
+                        <p>Доступные места: {{ showtime.available_seats }}</p>
+                    </div>
+                </article>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    {% endfor %}
+    </div>
+    <div id="pagination-controls"></div>
+</main>
+{% endblock content %}
